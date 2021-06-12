@@ -44,6 +44,7 @@ ext.AndroidConfig = androidConfig
 def gradlePlugins = [
         android: "com.android.tools.build:gradle:$versions.androidPlugin",
         kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        navigationSafeArgs: "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 ]
 // Expose through globally declared dictionary
 ext.GradlePlugins = gradlePlugins
