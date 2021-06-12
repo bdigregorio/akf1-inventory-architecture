@@ -1,0 +1,36 @@
+// Declare global variables for all gradle files
+ext.AndroidConfig = [:]
+ext.GradlePlugins = [:]
+ext.Dependencies = [:]
+
+
+// Local variable for consistent versions numbers within this file
+def versions = [
+        androidPlugin: "4.2.1",
+        kotlin: "1.4.31",
+        navigation: "2.3.5",
+]
+
+
+// Define Android configuration properties and expose through global variable
+def androidConfig = [
+
+]
+ext.AndroidConfig = androidConfig
+
+
+// Define Gradle plugins and expose through global variable
+def gradlePlugins = [
+        android: "com.android.tools.build:gradle:$versions.androidPlugin",
+        kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+]
+ext.GradlePlugins = gradlePlugins
+
+
+// Define common dependencies and expose through global variable
+def dependencies = [
+        kotlinStdLib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+        navigationFragment: "androidx.navigation:navigation-fragment-ktx:$versions.navigation",
+        navigationUi: "androidx.navigation:navigation-ui-ktx:$versions.navigation",
+]
+ext.Dependencies = dependencies
