@@ -32,7 +32,9 @@ def versions = [
 
 // Define Android configuration properties
 def androidConfig = [
-
+        compileSdk: 30,
+        minSdk: 22,
+        targetSdk: 30,
 ]
 // Expose through globally declared dictionary
 ext.AndroidConfig = androidConfig
