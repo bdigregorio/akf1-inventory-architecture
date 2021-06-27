@@ -1,16 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: 'config.gradle'
+    apply from: 'AppConfig.gradle'
 
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath GradlePlugins.kotlin
-        classpath GradlePlugins.android
-        classpath GradlePlugins.navigationSafeArgs
+        classpath "com.android.tools.build:gradle:$GradlePlugins.android"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$GradlePlugins.kotlin"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$GradlePlugins.navigation"
     }
 }
 

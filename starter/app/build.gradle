@@ -4,11 +4,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
-    compileSdkVersion AndroidConfig.compileSdk
+    compileSdkVersion Android.compileSdk
     defaultConfig {
         applicationId "com.udacity.shoestore"
-        minSdkVersion AndroidConfig.minSdk
-        targetSdkVersion AndroidConfig.targetSdk
+        minSdkVersion Android.minSdk
+        targetSdkVersion Android.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -34,25 +34,22 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Kotlin
-    implementation Dependencies.kotlinStdLib
+    // Jetpack
+    implementation "androidx.appcompat:appcompat:$Versions.appCompat"
+    implementation "androidx.core:core-ktx:$Versions.jetpackCore"
+    implementation "androidx.constraintlayout:constraintlayout:$Versions.constraintLayout"
+    implementation "androidx.lifecycle:lifecycle-extensions:$Versions.lifecycle"
+    implementation "androidx.navigation:navigation-fragment-ktx:$Versions.navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$Versions.navigation"
 
     // Material Design
-    implementation Dependencies.material
-
-    // Jetpack
-    implementation Dependencies.appCompat
-    implementation Dependencies.jetpackCore
-    implementation Dependencies.constraintLayout
-    implementation Dependencies.lifecycleExtensions
-    implementation Dependencies.navigationFragment
-    implementation Dependencies.navigationUi
+    implementation "com.google.android.material:material:$Versions.material"
 
     // Logging
-    implementation Dependencies.timber
+    implementation "com.jakewharton.timber:timber:$Versions.timber"
 
     // Test
-    testImplementation TestDependencies.junit
-    androidTestImplementation TestDependencies.junitAndroidX
-    androidTestImplementation TestDependencies.espresso
+    testImplementation "junit:junit:$TestDep.junit"
+    androidTestImplementation "androidx.test.ext:junit:$TestDep.junitAndroidX"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$TestDep.espresso"
 }
