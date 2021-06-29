@@ -1,0 +1,40 @@
+/**
+ * Android SDK versions and properties
+ */
+ext.Android = [:]
+Android.minSdk = 22
+Android.targetSdk = 30
+Android.compileSdk = 30
+
+/**
+ * Local variables used in multiple sections (ie GradlePlugins and Versions)
+ */
+def navigationVersion = "2.3.5"
+
+/**
+ * Gradle plugin versions
+ */
+ext.GradlePlugins = [:]
+GradlePlugins.android = "4.2.1"
+GradlePlugins.kotlin = "1.5.20"
+GradlePlugins.navigation = navigationVersion
+
+/**
+ * Dependency versions
+ */
+ext.Versions = [:]
+Versions.appCompat = "1.3.0"
+Versions.constraintLayout = "2.0.4"
+Versions.jetpackCore = "1.5.0"
+Versions.lifecycle = "2.2.0"
+Versions.material = "1.3.0"
+Versions.navigation = navigationVersion
+Versions.timber = "4.7.1"
+
+/**
+ * Test dependency versions
+ */
+ext.TestDep = [:]
+TestDep.junit = "4.13.2"
+TestDep.junitAndroidX = "1.1.2"
+TestDep.espresso = "3.3.0"
