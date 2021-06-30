@@ -37,15 +37,13 @@
 
         <Button
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/button_style"
             android:layout_marginTop="@dimen/login_item_margin"
             android:text="@string/login" />
 
         <Button
             android:id="@+id/create_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/button_style"
             android:layout_marginTop="@dimen/login_item_margin"
             android:text="@string/create_account" />
     </LinearLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,16 +25,8 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            style="@style/button_style"
             android:layout_marginTop="@dimen/login_screen_large_spacing"
-            android:background="@drawable/rounded_corner_background"
-            android:backgroundTint="@color/colorComplementary"
-            android:paddingStart="@dimen/button_padding"
-            android:paddingEnd="@dimen/button_padding"
-            android:text="@string/button_advance"
-            android:textColor="@color/textColorInverted"
-            android:textSize="@dimen/text_size_button" />
+            android:text="@string/button_advance" />
     </LinearLayout>
 </layout>
