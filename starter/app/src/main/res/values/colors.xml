@@ -5,4 +5,6 @@
     <color name="colorAccent">#00ACC1</color>
 
     <color name="textColor">#000000</color>
+    <color name="colorComplementary">#F49721</color>
+    <color name="textColorInverted">#FFFFFF</color>
 </resources>

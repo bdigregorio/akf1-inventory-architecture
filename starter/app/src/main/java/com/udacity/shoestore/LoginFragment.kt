@@ -25,7 +25,7 @@ class LoginFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false)
 
         // Set title
-        activity?.title = resources.getString(R.string.login)
+        activity?.title = resources.getString(R.string.app_name)
 
         // bind click listeners
         binding.loginButton.setOnClickListener(this::navigateToWelcomeScreen)

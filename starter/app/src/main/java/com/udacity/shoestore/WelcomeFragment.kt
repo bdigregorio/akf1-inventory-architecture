@@ -25,6 +25,8 @@ class WelcomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)
 
+        activity?.title = resources.getString(R.string.welcome_title)
+
         return binding.root
     }
 

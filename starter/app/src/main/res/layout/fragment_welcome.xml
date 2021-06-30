@@ -1,16 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".WelcomeFragment">
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding">
 
-        <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/textWelcome"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_screen_large_spacing"
+            android:text="@string/welcome_text"
+            android:textSize="@dimen/text_size" />
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/textWelcomeAdvance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/login_screen_med_spacing"
+            android:text="@string/welcome_advance"
+            android:textSize="@dimen/text_size" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/login_screen_large_spacing"
+            android:background="@drawable/rounded_corner_background"
+            android:backgroundTint="@color/colorComplementary"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="@string/button_advance"
+            android:textColor="@color/textColorInverted"
+            android:textSize="@dimen/text_size_button" />
+    </LinearLayout>
 </layout>
