@@ -8,4 +8,5 @@
     <string name="welcome_text">Welcome to ShoeStore - a world class inventory management system</string>
     <string name="welcome_advance">The next screen will explain how to use this exciting new application.</string>
     <string name="button_advance">Advance</string>
+    <string name="instructions_title">Instructions</string>
 </resources>
