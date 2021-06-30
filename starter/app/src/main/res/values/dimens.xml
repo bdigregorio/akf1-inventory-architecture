@@ -8,4 +8,10 @@
     <dimen name="login_screen_large_spacing">64dp</dimen>
     <dimen name="login_screen_med_spacing">32dp</dimen>
     <dimen name="login_item_margin">8dp</dimen>
+    <dimen name="text_size">20sp</dimen>
+    <dimen name="text_size_button">16sp</dimen>
+
+    <!-- other -->
+    <dimen name="button_corner_radius">32dp</dimen>
+    <dimen name="button_padding">48dp</dimen>
 </resources>
