@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_small_spacing">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/instructionsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginTop="@dimen/screen_large_spacing"
+            android:text="@string/instructions_text"
+            android:textSize="@dimen/text_size" />
+
+        <Button
+            android:id="@+id/advanceToInventoryBtn"
+            style="@style/button_style"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/screen_large_spacing"
+            android:text="@string/btn_manage_inventory" />
     </LinearLayout>
 </layout>

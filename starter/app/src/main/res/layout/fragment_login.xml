@@ -5,13 +5,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/screen_padding"
+        android:padding="@dimen/screen_small_spacing"
         tools:context=".LoginFragment">
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/login_screen_large_spacing"
+            android:layout_marginTop="@dimen/screen_large_spacing"
             android:hint="@string/email_label">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/login_item_margin"
-            android:layout_marginBottom="@dimen/login_screen_med_spacing"
+            android:layout_marginBottom="@dimen/screen_med_spacing"
             android:hint="@string/password_label">
 
             <com.google.android.material.textfield.TextInputEditText

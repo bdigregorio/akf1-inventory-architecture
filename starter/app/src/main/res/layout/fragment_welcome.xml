@@ -5,13 +5,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/screen_padding">
+        android:padding="@dimen/screen_small_spacing">
 
         <TextView
             android:id="@+id/textWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/login_screen_large_spacing"
+            android:layout_marginTop="@dimen/screen_large_spacing"
             android:text="@string/welcome_text"
             android:textSize="@dimen/text_size" />
 
@@ -19,14 +19,14 @@
             android:id="@+id/textWelcomeAdvance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/login_screen_med_spacing"
+            android:layout_marginTop="@dimen/screen_med_spacing"
             android:text="@string/welcome_advance"
             android:textSize="@dimen/text_size" />
 
         <Button
             android:id="@+id/advanceButton"
             style="@style/button_style"
-            android:layout_marginTop="@dimen/login_screen_large_spacing"
-            android:text="@string/button_advance" />
+            android:layout_marginTop="@dimen/screen_large_spacing"
+            android:text="@string/btn_advance" />
     </LinearLayout>
 </layout>
