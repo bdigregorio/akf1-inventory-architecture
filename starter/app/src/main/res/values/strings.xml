@@ -11,4 +11,6 @@
     <string name="instructions_title">Instructions</string>
     <string name="btn_manage_inventory">Manage inventory</string>
     <string name="instructions_text">Add a new shoe style by using the \"+\" fab. \n\nTo edit an existing style, tap on the entry from the list.</string>
+    <string name="empty_shoe_list_text">No shoes in stock</string>
+    <string name="shoe_list_title">Current inventory</string>
 </resources>
