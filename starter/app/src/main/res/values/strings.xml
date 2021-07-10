@@ -13,4 +13,5 @@
     <string name="instructions_text">Add a new shoe style by using the \"+\" fab. \n\nTo edit an existing style, tap on the entry from the list.</string>
     <string name="empty_shoe_list_text">No shoes in stock</string>
     <string name="shoe_list_title">Current inventory</string>
+    <string name="fab_content_descrip">Add new shoe entry to inventory</string>
 </resources>
