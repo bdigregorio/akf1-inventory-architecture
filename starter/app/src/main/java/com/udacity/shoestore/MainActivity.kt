@@ -1,8 +1,11 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -11,6 +14,7 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +30,26 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         navHostFragment?.let {
-            val navController = it.findNavController()
+            navController = it.findNavController()
             val appBarConfiguration = AppBarConfiguration(navController.graph)
 
             binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.item_logout -> {
+                navController.popBackStack(R.id.loginFragment, true)
+                navController.navigate(R.id.loginFragment)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

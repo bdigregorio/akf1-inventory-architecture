@@ -35,7 +35,7 @@
             android:layout_gravity="end|bottom"
             android:layout_margin="@dimen/screen_small_spacing"
             android:contentDescription="@string/fab_content_descrip"
-            android:src="@drawable/ic_add"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+            android:src="@drawable/ic_add" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

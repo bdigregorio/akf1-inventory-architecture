@@ -14,4 +14,5 @@
     <string name="empty_shoe_list_text">No shoes in stock</string>
     <string name="shoe_list_title">Current inventory</string>
     <string name="fab_content_descrip">Add new shoe entry to inventory</string>
+    <string name="item_logout">Logout</string>
 </resources>
