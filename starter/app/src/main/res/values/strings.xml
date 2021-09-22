@@ -16,5 +16,8 @@
     <string name="fab_content_descrip">Add new shoe entry to inventory</string>
     <string name="item_logout">Logout</string>
     <string name="add_shoe_title">Add new inventory</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="shoe_name">Shoe name</string>
+    <string name="shoe_company">Company</string>
+    <string name="shoe_size">Shoe size</string>
+    <string name="shoe_description">Description</string>
 </resources>

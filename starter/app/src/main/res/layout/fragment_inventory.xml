@@ -9,7 +9,7 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="@dimen/screen_small_spacing"
+            android:padding="@dimen/small"
             tools:context=".InventoryFragment">
 
             <LinearLayout
@@ -21,6 +21,7 @@
                     android:id="@+id/emptyShoeListText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/large"
                     android:text="@string/empty_shoe_list_text"
                     android:textSize="@dimen/text_size" />
 
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
-            android:layout_margin="@dimen/screen_small_spacing"
+            android:layout_margin="@dimen/small"
             android:contentDescription="@string/fab_content_descrip"
             android:src="@drawable/ic_add" />
 
