@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -15,7 +17,7 @@ import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
  * create an instance of this fragment.
  */
 class ShoeDetailFragment : Fragment() {
-
+    private val mainViewModel: MainViewModel by activityViewModels()
     lateinit var binding: FragmentShoeDetailBinding
 
     override fun onCreateView(
@@ -29,6 +31,8 @@ class ShoeDetailFragment : Fragment() {
 
         binding.saveButton.setOnClickListener { saveNewEntry() }
         binding.cancelButton.setOnClickListener { cancelNewEntry() }
+
+        Timber.i("Size of shoe list is: ${mainViewModel.shoes.value?.size}")
 
         return binding.root
     }
