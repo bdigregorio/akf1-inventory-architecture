@@ -20,4 +20,9 @@
     <string name="shoe_company">Company</string>
     <string name="shoe_size">Shoe size</string>
     <string name="shoe_description">Description</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_empty_name">Shoe name is required</string>
+    <string name="error_empty_company">Company is required</string>
+    <string name="error_empty_size">Shoe size is required</string>
 </resources>

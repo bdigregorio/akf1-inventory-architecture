@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
 /**
@@ -26,6 +27,9 @@ class ShoeDetailFragment : Fragment() {
 
         activity?.title = resources.getString(R.string.add_shoe_title)
 
+        binding.saveButton.setOnClickListener { saveNewEntry() }
+        binding.cancelButton.setOnClickListener { cancelNewEntry() }
+
         return binding.root
     }
 
@@ -38,5 +42,31 @@ class ShoeDetailFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() = ShoeDetailFragment()
+    }
+
+    fun saveNewEntry() {
+        if (entryIsValid()) {
+            findNavController().navigate(R.id.action_shoeDetailFragment_to_inventoryFragment)
+        }
+    }
+
+    fun cancelNewEntry() {
+        findNavController().navigate(R.id.action_shoeDetailFragment_to_inventoryFragment)
+    }
+
+    fun entryIsValid(): Boolean {
+        if (binding.shoeNameInput.text.isNullOrBlank()) {
+            binding.shoeNameInput.error = getString(R.string.error_empty_name)
+            return false
+        }
+        if (binding.shoeCompanyInput.text.isNullOrBlank()) {
+            binding.shoeCompanyInput.error = getString(R.string.error_empty_company)
+            return false
+        }
+        if (binding.shoeSizeInput.text.isNullOrBlank()) {
+            binding.shoeSizeInput.error = getString(R.string.error_empty_size)
+            return false
+        }
+        return true
     }
 }
