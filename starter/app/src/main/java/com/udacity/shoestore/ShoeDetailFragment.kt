@@ -1,14 +1,15 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
 /**
@@ -19,23 +20,6 @@ import timber.log.Timber
 class ShoeDetailFragment : Fragment() {
     private val mainViewModel: MainViewModel by activityViewModels()
     lateinit var binding: FragmentShoeDetailBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
-
-        activity?.title = resources.getString(R.string.add_shoe_title)
-
-        binding.saveButton.setOnClickListener { saveNewEntry() }
-        binding.cancelButton.setOnClickListener { cancelNewEntry() }
-
-        Timber.i("Size of shoe list is: ${mainViewModel.shoes.value?.size}")
-
-        return binding.root
-    }
 
     companion object {
         /**
@@ -48,17 +32,40 @@ class ShoeDetailFragment : Fragment() {
         fun newInstance() = ShoeDetailFragment()
     }
 
-    fun saveNewEntry() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        // Inflate the layout for this fragment
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+
+        activity?.title = resources.getString(R.string.add_shoe_title)
+
+        binding.saveButton.setOnClickListener(::onSaveClicked)
+        binding.cancelButton.setOnClickListener(::onCancelClicked)
+
+        return binding.root
+    }
+
+    private fun onSaveClicked(v: View) {
         if (entryIsValid()) {
+            val shoe = Shoe(
+                name = binding.shoeNameInput.text.toString(),
+                size = binding.shoeSizeInput.text.toString().toDouble(),
+                company = binding.shoeCompanyInput.text.toString(),
+                description = binding.shoeDescriptionInput.text.toString()
+            )
+            Timber.d("Save button clicked. Shoe is: ${shoe}")
+            mainViewModel.saveNewShoeEntry(shoe)
             findNavController().navigate(R.id.action_shoeDetailFragment_to_inventoryFragment)
         }
     }
 
-    fun cancelNewEntry() {
+    private fun onCancelClicked(v: View) {
         findNavController().navigate(R.id.action_shoeDetailFragment_to_inventoryFragment)
     }
 
-    fun entryIsValid(): Boolean {
+    private fun entryIsValid(): Boolean {
         if (binding.shoeNameInput.text.isNullOrBlank()) {
             binding.shoeNameInput.error = getString(R.string.error_empty_name)
             return false

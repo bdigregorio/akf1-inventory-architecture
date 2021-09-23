@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentInventoryBinding
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -17,6 +20,7 @@ import com.udacity.shoestore.databinding.FragmentInventoryBinding
 class InventoryFragment : Fragment() {
 
     lateinit var binding: FragmentInventoryBinding
+    private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,6 +33,7 @@ class InventoryFragment : Fragment() {
         activity?.title = resources.getString(R.string.shoe_list_title)
 
         binding.fab.setOnClickListener(this::navigateToBlankShoeDetail)
+        subscribeToViewModel()
 
         return binding.root
     }
@@ -46,5 +51,24 @@ class InventoryFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance() = InventoryFragment()
+    }
+
+    private fun subscribeToViewModel() {
+        observeShoeList()
+    }
+
+    private fun observeShoeList() {
+        mainViewModel.shoes.observe(viewLifecycleOwner) { shoes ->
+            if (shoes.isNotEmpty()) {
+                Timber.d("Update to shoe list observed - updating UI")
+                binding.emptyShoeListText.visibility = View.GONE
+                val shoe = shoes.last()
+                val newShoeView = View.inflate(context, R.layout.item_shoe, binding.shoeListContainer)
+                newShoeView.findViewById<TextView>(R.id.shoe_company).text = shoe.company
+                newShoeView.findViewById<TextView>(R.id.shoe_name).text = shoe.name
+                newShoeView.findViewById<TextView>(R.id.shoe_size).text = getString(R.string.size_format, shoe.size)
+                newShoeView.findViewById<TextView>(R.id.shoe_description).text = shoe.description
+            }
+        }
     }
 }
