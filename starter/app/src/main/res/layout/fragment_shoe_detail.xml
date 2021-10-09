@@ -13,37 +13,40 @@
         tools:context=".ShoeDetailFragment">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/shoe_name_hint"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/shoe_name"
-            app:errorEnabled="false"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/shoe_name_input"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Atletico" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/shoe_company_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/small"
             android:hint="@string/shoe_company"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shoe_name_hint">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/shoe_company_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/xsmall"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
                 tools:text="Ralph Lauren" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/shoe_name_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small"
+            android:hint="@string/shoe_name"
+            app:errorEnabled="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_company_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/shoe_name_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textCapWords"
+                tools:text="Atletico" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -53,13 +56,14 @@
             android:layout_marginTop="@dimen/small"
             android:hint="@string/shoe_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/shoe_company_hint">
+            app:layout_constraintTop_toBottomOf="@id/shoe_name_hint">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/shoe_size_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/xsmall"
+                android:imeOptions="actionNext"
+                android:inputType="numberDecimal"
                 tools:text="11" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,9 +79,7 @@
                 android:id="@+id/shoe_description_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/xsmall"
                 android:hint="@string/shoe_description"
-                android:inputType="textMultiLine"
                 tools:text="This shoe is the greatest shoe to ever grace God's green earth. One day, all people everywhere will wearing this shoe. Be the first. Be a trendsetter!" />
         </com.google.android.material.textfield.TextInputLayout>
 

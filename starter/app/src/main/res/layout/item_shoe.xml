@@ -17,6 +17,7 @@
             android:id="@+id/imageView"
             android:layout_width="@dimen/large"
             android:layout_height="@dimen/large"
+            android:contentDescription="@string/shoe_thumbnail_description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_shoe_sneaker"

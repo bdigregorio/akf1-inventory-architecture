@@ -1,9 +1,11 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -41,6 +43,12 @@ class ShoeDetailFragment : Fragment() {
 
         activity?.title = resources.getString(R.string.add_shoe_title)
 
+        binding.shoeDescriptionInput.apply {
+            // In order to get a multiline EditText that has keyboard IME_ACTION_DONE, this needs to be done programmatically
+            // using RawInputType. No way to configure this in XML.
+            imeOptions = EditorInfo.IME_ACTION_DONE
+            setRawInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or InputType.TYPE_TEXT_FLAG_MULTI_LINE)
+        }
         binding.saveButton.setOnClickListener(::onSaveClicked)
         binding.cancelButton.setOnClickListener(::onCancelClicked)
 
