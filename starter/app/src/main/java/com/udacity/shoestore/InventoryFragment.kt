@@ -63,13 +63,13 @@ class InventoryFragment : Fragment() {
                 Timber.d("Update to shoe list observed - updating UI; container initially has ${binding.shoeListContainer.childCount} views")
                 binding.shoeListContainer.removeAllViews()
                 shoes.forEach { shoe ->
-                    val newShoeView = LayoutInflater.from(context).inflate(R.layout.item_shoe, null)
+                    val newShoeView = LayoutInflater.from(context).inflate(R.layout.item_shoe, binding.shoeListContainer, false)
                     newShoeView.findViewById<TextView>(R.id.shoe_company).text = shoe.company
                     newShoeView.findViewById<TextView>(R.id.shoe_name).text = shoe.name
                     newShoeView.findViewById<TextView>(R.id.shoe_size).text = getString(R.string.size_format, shoe.size)
                     newShoeView.findViewById<TextView>(R.id.shoe_description).text = shoe.description
-                    binding.shoeListContainer.addView(newShoeView)
                     Timber.d("Inflated view added; container now has ${binding.shoeListContainer.childCount} views")
+                    binding.shoeListContainer.addView(newShoeView)
                 }
             }
         }
