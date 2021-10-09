@@ -63,7 +63,7 @@ class ShoeDetailFragment : Fragment() {
                 company = binding.shoeCompanyInput.text.toString(),
                 description = binding.shoeDescriptionInput.text.toString()
             )
-            Timber.d("Save button clicked. Shoe is: ${shoe}")
+            Timber.d("Save button clicked. Shoe is: $shoe")
             mainViewModel.saveNewShoeEntry(shoe)
             findNavController().navigate(R.id.action_shoeDetailFragment_to_inventoryFragment)
         }

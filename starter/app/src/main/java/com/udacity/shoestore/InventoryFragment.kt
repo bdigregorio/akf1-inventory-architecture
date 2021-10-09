@@ -60,14 +60,17 @@ class InventoryFragment : Fragment() {
     private fun observeShoeList() {
         mainViewModel.shoes.observe(viewLifecycleOwner) { shoes ->
             if (shoes.isNotEmpty()) {
-                Timber.d("Update to shoe list observed - updating UI")
-                binding.emptyShoeListText.visibility = View.GONE
-                val shoe = shoes.last()
-                val newShoeView = View.inflate(context, R.layout.item_shoe, binding.shoeListContainer)
-                newShoeView.findViewById<TextView>(R.id.shoe_company).text = shoe.company
-                newShoeView.findViewById<TextView>(R.id.shoe_name).text = shoe.name
-                newShoeView.findViewById<TextView>(R.id.shoe_size).text = getString(R.string.size_format, shoe.size)
-                newShoeView.findViewById<TextView>(R.id.shoe_description).text = shoe.description
+                Timber.d("Update to shoe list observed - updating UI; container initially has ${binding.shoeListContainer.childCount} views")
+                binding.shoeListContainer.removeAllViews()
+                shoes.forEach { shoe ->
+                    val newShoeView = LayoutInflater.from(context).inflate(R.layout.item_shoe, null)
+                    newShoeView.findViewById<TextView>(R.id.shoe_company).text = shoe.company
+                    newShoeView.findViewById<TextView>(R.id.shoe_name).text = shoe.name
+                    newShoeView.findViewById<TextView>(R.id.shoe_size).text = getString(R.string.size_format, shoe.size)
+                    newShoeView.findViewById<TextView>(R.id.shoe_description).text = shoe.description
+                    binding.shoeListContainer.addView(newShoeView)
+                    Timber.d("Inflated view added; container now has ${binding.shoeListContainer.childCount} views")
+                }
             }
         }
     }
