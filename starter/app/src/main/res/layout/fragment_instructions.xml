@@ -5,13 +5,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/screen_small_spacing">
+        android:padding="@dimen/small">
 
         <TextView
             android:id="@+id/instructionsText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/screen_large_spacing"
+            android:layout_marginTop="@dimen/large"
             android:text="@string/instructions_text"
             android:textSize="@dimen/text_size" />
 
@@ -20,7 +20,7 @@
             style="@style/button_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/screen_large_spacing"
+            android:layout_marginTop="@dimen/large"
             android:text="@string/btn_manage_inventory" />
     </LinearLayout>
 </layout>
