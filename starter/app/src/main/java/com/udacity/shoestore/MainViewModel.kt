@@ -13,7 +13,7 @@ class MainViewModel : ViewModel() {
         get() = _shoes
 
     init {
-        Timber.d("Initializing new shoe list")
+        Timber.d("Initializing _shoes list")
         _shoes.value = mutableListOf()
     }
 

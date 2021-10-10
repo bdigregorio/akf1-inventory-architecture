@@ -40,19 +40,24 @@ class ShoeDetailFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+        binding.lifecycleOwner = viewLifecycleOwner
 
         activity?.title = resources.getString(R.string.add_shoe_title)
 
+        setEditTextOptions()
+        binding.saveButton.setOnClickListener(::onSaveClicked)
+        binding.cancelButton.setOnClickListener(::onCancelClicked)
+
+        return binding.root
+    }
+
+    private fun setEditTextOptions() {
         binding.shoeDescriptionInput.apply {
             // In order to get a multiline EditText that has keyboard IME_ACTION_DONE, this needs to be done programmatically
             // using RawInputType. No way to configure this in XML.
             imeOptions = EditorInfo.IME_ACTION_DONE
             setRawInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES or InputType.TYPE_TEXT_FLAG_MULTI_LINE)
         }
-        binding.saveButton.setOnClickListener(::onSaveClicked)
-        binding.cancelButton.setOnClickListener(::onCancelClicked)
-
-        return binding.root
     }
 
     private fun onSaveClicked(v: View) {

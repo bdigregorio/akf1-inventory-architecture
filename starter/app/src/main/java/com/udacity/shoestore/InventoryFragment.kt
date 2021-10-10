@@ -18,7 +18,7 @@ import timber.log.Timber
  */
 class InventoryFragment : Fragment() {
 
-    lateinit var binding: FragmentInventoryBinding
+    private lateinit var inventoryBinding: FragmentInventoryBinding
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -27,15 +27,15 @@ class InventoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentInventoryBinding.inflate(inflater, container, false)
+        inventoryBinding = FragmentInventoryBinding.inflate(inflater, container, false)
 
         // Set title
         activity?.title = resources.getString(R.string.shoe_list_title)
 
-        binding.fab.setOnClickListener(this::navigateToBlankShoeDetail)
+        inventoryBinding.fab.setOnClickListener(this::navigateToBlankShoeDetail)
         subscribeToViewModel()
 
-        return binding.root
+        return inventoryBinding.root
     }
 
     private fun navigateToBlankShoeDetail(view: View) {
@@ -60,20 +60,20 @@ class InventoryFragment : Fragment() {
     private fun observeShoeList() {
         mainViewModel.shoes.observe(viewLifecycleOwner) { shoes ->
             if (shoes.isNotEmpty()) {
-                Timber.d("Update to shoe list observed - updating UI; container initially has ${binding.shoeListContainer.childCount} views")
-                binding.shoeListContainer.removeAllViews()
+                Timber.d("Update to shoe list observed - updating UI; container initially has ${inventoryBinding.shoeListContainer.childCount} views")
+                inventoryBinding.shoeListContainer.removeAllViews()
                 shoes.forEach { shoe ->
-                    val newShoeBinding = ItemShoeBinding.inflate(
+                    val shoeBinding = ItemShoeBinding.inflate(
                         LayoutInflater.from(context),
-                        binding.shoeListContainer,
+                        inventoryBinding.shoeListContainer,
                         false
                     )
-                    newShoeBinding.shoeCompany.text = shoe.company
-                    newShoeBinding.shoeName.text = shoe.name
-                    newShoeBinding.shoeSize.text = getString(R.string.size_format, shoe.size)
-                    newShoeBinding.shoeDescription.text = shoe.description
-                    Timber.d("Inflated view added; container now has ${binding.shoeListContainer.childCount} views")
-                    binding.shoeListContainer.addView(newShoeBinding.root)
+                    shoeBinding.company.text = shoe.company
+                    shoeBinding.name.text = shoe.name
+                    shoeBinding.size.text = getString(R.string.size_format, shoe.size)
+                    shoeBinding.description.text = shoe.description
+                    Timber.d("Inflated view added; container now has ${inventoryBinding.shoeListContainer.childCount} views")
+                    inventoryBinding.shoeListContainer.addView(shoeBinding.root)
                 }
             }
         }

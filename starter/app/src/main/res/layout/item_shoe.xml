@@ -30,7 +30,7 @@
                 app:tint="#039BE5" />
 
             <TextView
-                android:id="@+id/shoe_company"
+                android:id="@+id/company"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -40,32 +40,32 @@
                 tools:text="Vans" />
 
             <TextView
-                android:id="@+id/shoe_name"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/shoe_size"
+                app:layout_constraintEnd_toStartOf="@+id/size"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintHorizontal_chainStyle="spread_inside"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/shoe_company"
+                app:layout_constraintTop_toBottomOf="@+id/company"
                 tools:text="Skywalker" />
 
             <TextView
-                android:id="@+id/shoe_size"
+                android:id="@+id/size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/shoe_name"
-                app:layout_constraintTop_toTopOf="@+id/shoe_name"
+                app:layout_constraintStart_toEndOf="@+id/name"
+                app:layout_constraintTop_toTopOf="@+id/name"
                 tools:text="Size: 11" />
 
             <TextView
-                android:id="@+id/shoe_description"
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
