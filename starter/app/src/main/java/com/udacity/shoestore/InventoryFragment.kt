@@ -18,7 +18,7 @@ import timber.log.Timber
  */
 class InventoryFragment : Fragment() {
 
-    private lateinit var inventoryBinding: FragmentInventoryBinding
+    private val inventoryBinding by lazy { FragmentInventoryBinding.inflate(layoutInflater) }
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -26,9 +26,6 @@ class InventoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        inventoryBinding = FragmentInventoryBinding.inflate(inflater, container, false)
-
         // Set title
         activity?.title = resources.getString(R.string.shoe_list_title)
 

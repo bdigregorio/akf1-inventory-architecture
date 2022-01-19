@@ -16,8 +16,7 @@ class MainViewModel : ViewModel() {
     val uiEvent: LiveData<UiEvent>
         get() = _uiEvent
 
-    fun getNextUiEvent(handledEvent: UiEvent) {
-        Timber.d("Finished processing $handledEvent, awaiting next ui event")
+    fun awaitNextUiEvent() {
         _uiEvent.value = UiEvent.Await
     }
 

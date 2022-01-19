@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.models.Shoe
+import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -56,15 +57,20 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun onUiEvent(uiEvent: UiEvent) {
+        if (uiEvent is UiEvent.Await) return
+
         when (uiEvent) {
-            UiEvent.Await -> {}
             UiEvent.Save -> {
                 onUiEventSave()
             }
             UiEvent.Cancel -> {
                 onUiEventCancel()
             }
+            else -> throw UnhandledUiEventException()
         }
+
+        mainViewModel.awaitNextUiEvent()
+        Timber.d("Finished processing $uiEvent, awaiting next ui event")
     }
 
     private fun onUiEventSave() {
