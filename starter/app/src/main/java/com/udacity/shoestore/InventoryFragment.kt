@@ -4,12 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentInventoryBinding
+import com.udacity.shoestore.databinding.ItemShoeBinding
 import timber.log.Timber
 
 /**
@@ -19,23 +18,21 @@ import timber.log.Timber
  */
 class InventoryFragment : Fragment() {
 
-    lateinit var binding: FragmentInventoryBinding
+    private val inventoryBinding by lazy { FragmentInventoryBinding.inflate(layoutInflater) }
     private val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inventory, container, false)
-
         // Set title
         activity?.title = resources.getString(R.string.shoe_list_title)
 
-        binding.fab.setOnClickListener(this::navigateToBlankShoeDetail)
+        inventoryBinding.fab.setOnClickListener(this::navigateToBlankShoeDetail)
         subscribeToViewModel()
 
-        return binding.root
+        return inventoryBinding.root
     }
 
     private fun navigateToBlankShoeDetail(view: View) {
@@ -60,16 +57,20 @@ class InventoryFragment : Fragment() {
     private fun observeShoeList() {
         mainViewModel.shoes.observe(viewLifecycleOwner) { shoes ->
             if (shoes.isNotEmpty()) {
-                Timber.d("Update to shoe list observed - updating UI; container initially has ${binding.shoeListContainer.childCount} views")
-                binding.shoeListContainer.removeAllViews()
+                Timber.d("Update to shoe list observed - updating UI; container initially has ${inventoryBinding.shoeListContainer.childCount} views")
+                inventoryBinding.shoeListContainer.removeAllViews()
                 shoes.forEach { shoe ->
-                    val newShoeView = LayoutInflater.from(context).inflate(R.layout.item_shoe, binding.shoeListContainer, false)
-                    newShoeView.findViewById<TextView>(R.id.shoe_company).text = shoe.company
-                    newShoeView.findViewById<TextView>(R.id.shoe_name).text = shoe.name
-                    newShoeView.findViewById<TextView>(R.id.shoe_size).text = getString(R.string.size_format, shoe.size)
-                    newShoeView.findViewById<TextView>(R.id.shoe_description).text = shoe.description
-                    Timber.d("Inflated view added; container now has ${binding.shoeListContainer.childCount} views")
-                    binding.shoeListContainer.addView(newShoeView)
+                    val shoeBinding = ItemShoeBinding.inflate(
+                        LayoutInflater.from(context),
+                        inventoryBinding.shoeListContainer,
+                        false
+                    )
+                    shoeBinding.company.text = shoe.company
+                    shoeBinding.name.text = shoe.name
+                    shoeBinding.size.text = getString(R.string.size_format, shoe.size)
+                    shoeBinding.description.text = shoe.description
+                    Timber.d("Inflated view added; container now has ${inventoryBinding.shoeListContainer.childCount} views")
+                    inventoryBinding.shoeListContainer.addView(shoeBinding.root)
                 }
             }
         }

@@ -25,6 +25,7 @@
     <string name="error_empty_name">Shoe name is required</string>
     <string name="error_empty_company">Company is required</string>
     <string name="error_empty_size">Shoe size is required</string>
+    <string name="error_size_not_number">Shoe size should be a number</string>
     <string name="size_format">Size: %.1f</string>
     <string name="shoe_thumbnail_description">a pair of shoes</string>
 </resources>
