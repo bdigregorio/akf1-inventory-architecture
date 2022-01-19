@@ -8,18 +8,31 @@ import timber.log.Timber
 
 class MainViewModel : ViewModel() {
 
-    private var _shoes = MutableLiveData<MutableList<Shoe>>()
+    private var _shoes = MutableLiveData(mutableListOf<Shoe>())
     val shoes: LiveData<MutableList<Shoe>>
         get() = _shoes
 
-    init {
-        Timber.d("Initializing _shoes list")
-        _shoes.value = mutableListOf()
+    private val _uiEvent = MutableLiveData<UiEvent>(UiEvent.Await)
+    val uiEvent: LiveData<UiEvent>
+        get() = _uiEvent
+
+    fun getNextUiEvent(handledEvent: UiEvent) {
+        Timber.d("Finished processing $handledEvent, awaiting next ui event")
+        _uiEvent.value = UiEvent.Await
     }
 
-    fun saveNewShoeEntry(shoe: Shoe) {
-        Timber.d("Adding entry to shoe viewmodel")
+    fun onSaveClicked() {
+        Timber.d("Save clicked")
+        _uiEvent.value = UiEvent.Save
+    }
+
+    fun onCancelClicked() {
+        Timber.d("Cancel clicked")
+        _uiEvent.value = UiEvent.Cancel
+    }
+
+    fun saveValidShoe(shoe: Shoe) {
+        Timber.d("Add shoe data to list")
         _shoes.value?.add(shoe)
-        Timber.d("Shoe list now contains ${shoes.value?.size} elements: ${shoes.value}")
     }
 }
