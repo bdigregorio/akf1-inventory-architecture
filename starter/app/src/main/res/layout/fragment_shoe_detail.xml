@@ -14,6 +14,7 @@
             type="com.udacity.shoestore.MainViewModel" />
     </data>
 
+    <!-- ConstraintLayout is used to easily position the screen elements relative to each other -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
