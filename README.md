@@ -17,3 +17,7 @@ This project consists of five screens:
 - ViewModel, Databinding, Livedata
 - NavGraph, NavController
 - Safe Args
+
+## Screenshots
+[Shoe inventory listings](screenshots/inventory.png)
+[Shoe detail form](screenshots/detail.png)
