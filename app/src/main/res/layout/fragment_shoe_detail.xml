@@ -92,7 +92,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/shoe_description"
-                tools:text="This shoe is the greatest shoe to ever grace God's green earth. One day, all people everywhere will wearing this shoe. Be the first. Be a trendsetter!" />
+                tools:text="This shoe is the greatest shoe to ever grace God's green earth. One day, all people everywhere will be wearing this shoe. Be the first. Be a trendsetter!" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
