@@ -1,52 +1,23 @@
-# README Template
+# Shoe Inventory app to explore Jetpack navigation
 
-Below is a template provided for use when building your README file for students.
+This project consists of five screens:
 
-# Project Title
+1. Login screen
+    - A facade, any combination or even no input will advance to next screen
+2. Welcome onboarding screen
+    - A screen that is popped passed on the backstack (shows only 1 time)
+3. Instructions onboarding screen
+    - A screen that is popped passed on the backstack (shows only 1 time)
+4. Shoe Listing screen
+    - A screen that is updated through the ViewModel when a new Detail fragment is saved
+5. Shoe Detail screen
+    - A screen to input data for saving
 
-Project description goes here.
+## Jetpack features explored
+- ViewModel, Databinding, Livedata
+- NavGraph, NavController
+- Safe Args
 
-## Getting Started
-
-Instructions for how to get a copy of the project running on your local machine.
-
-### Dependencies
-
-```
-Examples here
-```
-
-### Installation
-
-Step by step explanation of how to get a dev environment running.
-
-List out the steps
-
-```
-Give an example here
-```
-
-## Testing
-
-Explain the steps needed to run any automated tests
-
-### Break Down Tests
-
-Explain what each test does and why
-
-```
-Examples here
-```
-## Project Instructions
-
-This section should contain all the student deliverables for this project.
-
-## Built With
-
-* [Item1](www.item1.com) - Description of item
-* [Item2](www.item2.com) - Description of item
-* [Item3](www.item3.com) - Description of item
-
-Include all items used to build project.
-
-## License
+## Screenshots
+![Shoe inventory listings](screenshots/inventory.png)
+![Shoe detail form](screenshots/detail.png)
